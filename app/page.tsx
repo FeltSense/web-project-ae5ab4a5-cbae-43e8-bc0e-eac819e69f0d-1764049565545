@@ -16,7 +16,7 @@ export default function Home() {
       
       {/* Radial gradient overlays for depth */}
       <div className="fixed top-0 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none animate-pulse" />
-      <div className="fixed bottom-1/4 right-1/4 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none animate-pulse delay-1000" />
+      <div className="fixed bottom-1/4 right-1/4 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none animate-pulse" style={{ animationDelay: '1000ms' }} />
       
       {/* Content sections */}
       <div className="relative z-10">
