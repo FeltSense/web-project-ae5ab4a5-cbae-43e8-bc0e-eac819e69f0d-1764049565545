@@ -1,0 +1,279 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html { scroll-behavior: smooth; }
+
+@layer base {
+  body {
+    @apply bg-slate-900 text-slate-100 antialiased;
+  }
+}
+
+@layer components {
+  /* Command Center Grid Pattern */
+  .grid-pattern {
+    background-image: 
+      linear-gradient(to right, rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  
+  /* Military-grade scan line effect */
+  .scan-line {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .scan-line::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(52, 211, 153, 0.1),
+      transparent
+    );
+    animation: scan 3s ease-in-out infinite;
+  }
+  
+  @keyframes scan {
+    0%, 100% { top: -100%; }
+    50% { top: 100%; }
+  }
+  
+  /* Data pulse animation */
+  .pulse-ring {
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes pulse-ring {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.05);
+    }
+  }
+  
+  /* Tactical button glow */
+  .tactical-glow {
+    box-shadow: 
+      0 0 20px rgba(52, 211, 153, 0.3),
+      inset 0 0 20px rgba(52, 211, 153, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .tactical-glow:hover {
+    box-shadow: 
+      0 0 30px rgba(52, 211, 153, 0.5),
+      inset 0 0 30px rgba(52, 211, 153, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  /* Mission status bar */
+  .status-bar {
+    position: relative;
+    background: linear-gradient(
+      90deg,
+      rgba(52, 211, 153, 0.2) 0%,
+      rgba(52, 211, 153, 0.05) 100%
+    );
+    border-left: 3px solid #34d399;
+  }
+  
+  /* HUD (Heads Up Display) elements */
+  .hud-border {
+    border: 2px solid rgba(148, 163, 184, 0.2);
+    position: relative;
+  }
+  
+  .hud-border::before,
+  .hud-border::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #34d399;
+  }
+  
+  .hud-border::before {
+    top: -2px;
+    left: -2px;
+    border-right: none;
+    border-bottom: none;
+  }
+  
+  .hud-border::after {
+    bottom: -2px;
+    right: -2px;
+    border-left: none;
+    border-top: none;
+  }
+  
+  /* Strength meter animation */
+  .strength-meter {
+    background: linear-gradient(
+      90deg,
+      #34d399 0%,
+      #f97316 50%,
+      #ef4444 100%
+    );
+    animation: meter-pulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes meter-pulse {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+  }
+  
+  /* Command text glitch effect */
+  .glitch {
+    position: relative;
+    animation: glitch-skew 5s infinite;
+  }
+  
+  @keyframes glitch-skew {
+    0%, 90%, 100% { transform: skew(0deg); }
+    91% { transform: skew(-2deg); }
+    92% { transform: skew(2deg); }
+    93% { transform: skew(0deg); }
+  }
+  
+  /* Tactical card hover */
+  .tactical-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+  }
+  
+  .tactical-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(52, 211, 153, 0.5);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(52, 211, 153, 0.2);
+  }
+  
+  /* Orange alert accent */
+  .alert-accent {
+    background: linear-gradient(
+      135deg,
+      rgba(249, 115, 22, 0.1) 0%,
+      transparent 100%
+    );
+    border-left: 4px solid #f97316;
+  }
+  
+  /* Progress bar with military precision */
+  .precision-bar {
+    position: relative;
+    background: rgba(15, 23, 42, 0.8);
+    overflow: hidden;
+  }
+  
+  .precision-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      #34d399,
+      #10b981
+    );
+    box-shadow: 0 0 20px rgba(52, 211, 153, 0.5);
+    transition: width 0.5s ease;
+  }
+  
+  /* Data stream effect */
+  .data-stream {
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(52, 211, 153, 0.05) 50%,
+      transparent 100%
+    );
+    animation: stream 3s linear infinite;
+  }
+  
+  @keyframes stream {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+  
+  /* Command button */
+  .command-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .command-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+  
+  .command-btn:hover::before {
+    width: 300px;
+    height: 300px;
+  }
+  
+  /* Mission objective marker */
+  .objective-marker {
+    position: relative;
+    padding-left: 24px;
+  }
+  
+  .objective-marker::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    color: #34d399;
+    animation: marker-blink 2s ease-in-out infinite;
+  }
+  
+  @keyframes marker-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  
+  /* Hexagon shape for strength indicators */
+  .hex-indicator {
+    clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
+  }
+  
+  /* Terminal-style text */
+  .terminal-text {
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 10px rgba(52, 211, 153, 0.5);
+  }
+}
+
+@layer utilities {
+  .text-glow-emerald {
+    text-shadow: 0 0 20px rgba(52, 211, 153, 0.6);
+  }
+  
+  .text-glow-orange {
+    text-shadow: 0 0 20px rgba(249, 115, 22, 0.6);
+  }
+  
+  .border-gradient-emerald {
+    border-image: linear-gradient(135deg, #34d399, #10b981) 1;
+  }
+}
